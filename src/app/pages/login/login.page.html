@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mafia Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class = "login-wrapper">
+      <div class = "join-game-section login-half-section">
+          <div class = "login-group" [formGroup]="joinGameForm">
+            <app-headings heading = "Join Game" color = "white" ></app-headings>
+            <ion-item>
+                <ion-label>
+                  Your Name
+                </ion-label>
+                <ion-input formControlName = "userName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>
+                  Game Name
+                </ion-label>
+                <ion-input formControlName = "gameName"></ion-input>
+            </ion-item>
+            <ion-button expand="full" (click) = "joinGame()">Join Game</ion-button>
+          </div>
+      </div>
+      <div class = "create-game-section login-half-section">
+          <div class = "login-group" [formGroup]="createGameForm">
+              <app-headings heading = "New Game? Create" color = "white"></app-headings>
+              <ion-item>
+                  <ion-label>
+                    Game Id
+                  </ion-label>
+                  <ion-input formControlName = "gameName"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>
+                    Password
+                  </ion-label>
+                  <ion-input formControlName = "gamePassword" type = "password"></ion-input>
+              </ion-item>
+              <ion-button expand="full" (click) = "createGame()">Create Game</ion-button>
+          </div>
+      </div>
+    </div>
+</ion-content>

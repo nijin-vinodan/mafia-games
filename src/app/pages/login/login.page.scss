@@ -1,0 +1,19 @@
+.login-wrapper{
+    height: 100vh;
+    background: #112233;
+    .login-half-section{
+        height: 45vh;
+        padding: 8vh 4vh;
+    }
+    .join-game-section{
+        background: #445566;
+    }
+    .create-game-section{
+    }
+
+    .login-group{
+        width: 90%;
+        max-width: 500px;
+        margin: auto;
+    }
+}
