@@ -31,14 +31,15 @@ export class ListPage implements OnInit {
   ngOnInit(){
     if (window.history.state) {
       this.game.name = window.history.state.gameName;
+      this.firebaseService.getPlayersForGame(this.game.name);
       this.getPlayers();
     }
   }
 
   getPlayers(){
     // Subscribe for Game Players
-    this.firebaseService.gameData.subscribe(gameList => {
-      console.log(gameList);
+    this.firebaseService.playersData.subscribe(playersList => {
+      this.players = playersList;
     })
   }
 }

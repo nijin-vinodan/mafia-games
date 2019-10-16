@@ -13,8 +13,9 @@ export class FirebaseService {
   private gameCollection : AngularFirestoreCollection;
   private configCollection: AngularFirestoreCollection;
 
-  gameData : Observable<any>;
-  configData: Observable<any>;
+  gameData    : Observable<any>;
+  configData  : Observable<any>;
+  playersData : Observable<any>;
 
   /**
    * Stores subscribed value of gameData.
@@ -98,7 +99,19 @@ export class FirebaseService {
     });
   }
 
-  getPlayers(game: String){
-    return this.gameData;
+  /**
+   * Method : getPlayersForAGame
+   * @param gameName 
+   */
+  getPlayersForGame(gameName){
+    this.playersData = this.gameCollection.doc(gameName).collection("players").snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
   }
 }
