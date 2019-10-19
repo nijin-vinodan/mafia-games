@@ -21,6 +21,7 @@ export class FirebaseService {
    * Stores subscribed value of gameData.
    */
   gameList : Array<any>;
+  configList: Array<any>;
 
   constructor(
     db: AngularFirestore, 
@@ -44,7 +45,7 @@ export class FirebaseService {
       })
     );
 
-    this.configData = this.gameCollection.snapshotChanges().pipe(
+    this.configData = this.configCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -57,14 +58,17 @@ export class FirebaseService {
     this.subscribeForData();
   }
 
+  /**
+   * Method : subscribeForData
+   */
   subscribeForData(){
     this.gameData.subscribe(gameList => {
       this.gameList = gameList;
     })
-  }
 
-  getGame(){
-    return this.gameList;  
+    this.configData.subscribe(configList => {
+      this.configList = configList;
+    })
   }
 
   /**
@@ -114,4 +118,6 @@ export class FirebaseService {
       })
     );
   }
+
+
 }

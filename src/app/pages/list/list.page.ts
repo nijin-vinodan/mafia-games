@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
 import { Game } from 'src/app/models/Game';
 import { FirebaseService } from '../../services/firebase.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +16,7 @@ export class ListPage implements OnInit {
 
   constructor(
     private menuController: MenuController,
+    private router: Router,
     private firebaseService: FirebaseService
   ) {
     this.players = [
@@ -41,5 +43,14 @@ export class ListPage implements OnInit {
     this.firebaseService.playersData.subscribe(playersList => {
       this.players = playersList;
     })
+  }
+
+  assignRoles(){
+    const navigationExtras: NavigationExtras = {
+      state: {
+        playersCount : 4
+      }
+    };
+    this.router.navigate(['roles'], navigationExtras);
   }
 }
