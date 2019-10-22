@@ -16,7 +16,7 @@ export class RolesPage implements OnInit {
     private firebaseService: FirebaseService,
     private storage: Storage
   ) { 
-    storage.set('name', 'Max');
+    this.firebaseService.listenForData();
   }
 
   ngOnInit(){
@@ -28,15 +28,22 @@ export class RolesPage implements OnInit {
   }
 
   getRolesConfiguration(){
+    console.log("get Roles");
     this.firebaseService.configData.subscribe(roles => {
        console.log(roles);
        for(let i = 0 ; i < roles.length ; i++){
+         console.log(roles[i].id, "players_" + this.playersCount, roles[i].id === "players_" + this.playersCount);
          if(roles[i].id === "players_" + this.playersCount){
           this.roles = roles[i].players;
+          console.log(this.roles);
           break;
          }
        }
     })
+  }
+
+  startGame(){
+    console.log("Start Game");
   }
 
 }
