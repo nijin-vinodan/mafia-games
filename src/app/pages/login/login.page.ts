@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { FirebaseService } from '../../services/firebase.service';
+import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import {  MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { AppConstants } from '../../constants/app-constants';
 import { NewGameModel } from 'src/app/models/NewGameModel';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +22,30 @@ export class LoginPage implements OnInit {
   constructor(
     private menuController: MenuController,
     private router: Router,
+    private storage: Storage,
     private firebaseService: FirebaseService,
+    private localStorageService: LocalStorageService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+    // Checked Logged In User
     this.initializeForm();
+    this.initializeLogin();
+  }
+
+  async initializeLogin(){
+    let loggedInUser = await this.localStorageService.getLoggedInUser();
+    let gameDetails = await this.localStorageService.getGameDetails();
+    if(loggedInUser){
+      console.log("Game Player");
+      this.router.navigate(['home']);
+    }else if(gameDetails){
+      console.log("Game Moderator");
+      this.router.navigate(['list']);
+    }else{
+      console.log("No active Logins");
+    }
   }
 
   ionViewWillEnter(){
@@ -85,31 +105,28 @@ export class LoginPage implements OnInit {
    * Desc   : Create a name game with game id and password
    */
   async createGame(){
-
-    console.log("Create Game");
-
     if(this.createGameForm.valid){
       let newGameObject : NewGameModel = {
         name : this.createGameForm.get("gameName").value,
         password: this.createGameForm.get("gamePassword").value
       };
+      
       let createGameResponse = await this.firebaseService.addNewGame(newGameObject);
 
       if(createGameResponse){
-        const navigationExtras: NavigationExtras = {
-          state: {
-            gameName : newGameObject.name
+        // Add To LS
+        await this.localStorageService.addGameDetails(newGameObject);
+        let navigationExtras = {
+          state : {
+            gameName : newGameObject.name 
           }
-        };
+        }
         this.router.navigate(['list'], navigationExtras);
       }else{
-
-      }
-      
+        console.log("Error in creating game");
+      } 
     }else{
       console.log("Invalid Fields");
     }
-    
-
   }
 }
