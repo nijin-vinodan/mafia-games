@@ -64,6 +64,13 @@
     <code>src/app/pages/roles/roles.page.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Page to display list of available roles for the game</p>
+
+    </p>
 
 
     <p class="comment">
@@ -148,6 +155,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#assignRoles">assignRoles</a>
+                            </li>
+                            <li>
+                                <a href="#getAllRoles">getAllRoles</a>
+                            </li>
+                            <li>
                                 <a href="#getRolesConfiguration">getRolesConfiguration</a>
                             </li>
                             <li>
@@ -174,17 +187,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(firebaseService: <a href="../injectables/FirebaseService.html">FirebaseService</a>, storage: Storage)</code>
+<code>constructor(firebaseService: <a href="../injectables/FirebaseService.html">FirebaseService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storage: Storage)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/roles/roles.page.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/roles/roles.page.ts:22</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -201,6 +216,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -242,6 +269,88 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="assignRoles"></a>
+                    <span class="name">
+                        <b>
+                            assignRoles
+                        </b>
+                        <a href="#assignRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>assignRoles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/app/pages/roles/roles.page.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Assign Roles to Players in Random Fashion Order</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllRoles"></a>
+                    <span class="name">
+                        <b>
+                            getAllRoles
+                        </b>
+                        <a href="#getAllRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllRoles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/pages/roles/roles.page.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get All Roles in the Game</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getRolesConfiguration"></a>
                     <span class="name">
                         <b>
@@ -260,14 +369,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/pages/roles/roles.page.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/pages/roles/roles.page.ts:64</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get list of roles configurations available for the given playersCount from Firebase</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -299,14 +410,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/pages/roles/roles.page.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/pages/roles/roles.page.ts:41</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>ngOnInit</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -338,14 +451,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/pages/roles/roles.page.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/pages/roles/roles.page.ts:86</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Start Game</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -381,10 +496,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/roles/roles.page.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/roles/roles.page.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>playersCount - List of active participants in the game. State variable from previous list page</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -402,10 +523,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/roles/roles.page.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/roles/roles.page.ts:22</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>roles - List of available roles with their number in the game</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -417,52 +544,92 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { FirebaseService } from &#x27;../../services/firebase/firebase.service&#x27;;
+import { Router, NavigationExtras } from &#x27;@angular/router&#x27;;
 import { Storage } from &#x27;@ionic/storage&#x27;;
 
+/**
+ * Page to display list of available roles for the game
+ */
 @Component({
   selector: &#x27;app-roles&#x27;,
   templateUrl: &#x27;./roles.page.html&#x27;,
   styleUrls: [&#x27;./roles.page.scss&#x27;],
 })
 export class RolesPage implements OnInit {
-
+  /**
+   * playersCount - List of active participants in the game. State variable from previous list page
+   */
   playersCount : Number;
+  /**
+   * roles - List of available roles with their number in the game
+   */
   roles;
 
+  /**
+   * Constructor
+   * @param firebaseService 
+   * @param router 
+   * @param storage 
+   */
   constructor(
     private firebaseService: FirebaseService,
+    private router : Router,
     private storage: Storage
   ) { 
     this.firebaseService.listenForData();
   }
 
+  /**
+   * ngOnInit
+   */
   ngOnInit(){
     if (window.history.state) {
       this.playersCount &#x3D; window.history.state.playersCount;
-      console.log(this.playersCount);
-      this.getRolesConfiguration();
+      if(this.playersCount){
+        this.getRolesConfiguration();
+      }else{
+        // Navigate back to list as state [playersCount] is not available
+        this.router.navigate([&#x27;list&#x27;]); 
+      }
     }
   }
 
+
+  /**
+   * Get All Roles in the Game
+   */
+  getAllRoles(){
+
+  }
+
+  /**
+   * Get list of roles configurations available for the given playersCount from Firebase
+   */
   getRolesConfiguration(){
-    console.log(&quot;get Roles&quot;);
     this.firebaseService.configData.subscribe(roles &#x3D;&gt; {
-       console.log(roles);
        for(let i &#x3D; 0 ; i &lt; roles.length ; i++){
-         console.log(roles[i].id, &quot;players_&quot; + this.playersCount, roles[i].id &#x3D;&#x3D;&#x3D; &quot;players_&quot; + this.playersCount);
          if(roles[i].id &#x3D;&#x3D;&#x3D; &quot;players_&quot; + this.playersCount){
           this.roles &#x3D; roles[i].players;
-          console.log(this.roles);
           break;
          }
        }
     })
   }
 
+
+  /**
+   * Assign Roles to Players in Random Fashion Order
+   */
+  assignRoles(){
+    
+  }
+
+  /**
+   * Start Game
+   */
   startGame(){
     console.log(&quot;Start Game&quot;);
   }
-
 }
 </code></pre>
     </div>

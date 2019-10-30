@@ -63,6 +63,7 @@ export class ListPage implements OnInit {
    * Desc   : To assign roles to the players. 
    */
   assignRoles(){
+    // To Do : Change playersCount to Dynamic players
     const navigationExtras: NavigationExtras = {
       state: {
         playersCount : 5
