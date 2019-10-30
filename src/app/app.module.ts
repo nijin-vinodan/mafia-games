@@ -13,11 +13,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
-import { AngularFireModule } from 'angularfire2'; 
+import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FirebaseServiceHelper } from './service-helpers/firebaseServiceHelper';
 
 import { environment } from '../environments/environment';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,12 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
-    SharedModule
-  ], 
+    SharedModule,
+    HttpClientModule,
+    LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG, disableConsoleLogging: false, serverLogLevel: NgxLoggerLevel.OFF })
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -43,4 +47,4 @@ import { environment } from '../environments/environment';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { NewGameModel } from '../models/NewGameModel';
-import { FirebaseServiceHelper } from '../service-helpers/firebaseServiceHelper';
+import { NewGameModel } from '../../models/NewGameModel';
+import { FirebaseServiceHelper } from '../../service-helpers/firebaseServiceHelper';
 
 @Injectable({
   providedIn: 'root'

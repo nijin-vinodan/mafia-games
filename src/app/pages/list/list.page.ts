@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
 import { Game } from 'src/app/models/Game';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -46,6 +46,10 @@ export class ListPage implements OnInit {
     }
   }
 
+  /**
+   * Method : getPlayers
+   * Desc   : Subscribe to players who are joining the game
+   */
   getPlayers(){
     // Subscribe for Game Players
     this.firebaseService.playersData.subscribe(playersList => {
@@ -53,7 +57,13 @@ export class ListPage implements OnInit {
     })
   }
 
+  /**
+   * Method : assignRoles
+   * Role   : Create Game Functionality
+   * Desc   : To assign roles to the players. 
+   */
   assignRoles(){
+    // To Do : Change playersCount to Dynamic players
     const navigationExtras: NavigationExtras = {
       state: {
         playersCount : 5
