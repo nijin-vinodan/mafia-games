@@ -1,0 +1,947 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Mafia-Game documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Mafia-Game documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LoginPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/login/login.page.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createGameForm">createGameForm</a>
+                            </li>
+                            <li>
+                                <a href="#FORM_REGEX_VALIDATOR">FORM_REGEX_VALIDATOR</a>
+                            </li>
+                            <li>
+                                <a href="#joinGameForm">joinGameForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createGame">createGame</a>
+                            </li>
+                            <li>
+                                <a href="#initializeForm">initializeForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#initializeLogin">initializeLogin</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillEnter">ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#joinGame">joinGame</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(menuController: MenuController, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storage: Storage, firebaseService: <a href="../injectables/FirebaseService.html">FirebaseService</a>, localStorageService: <a href="../injectables/LocalStorageService.html">LocalStorageService</a>, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/login/login.page.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>menuController</td>
+                                                  
+                                                        <td>
+                                                                    <code>MenuController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>storage</td>
+                                                  
+                                                        <td>
+                                                                    <code>Storage</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firebaseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>localStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createGame"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            createGame
+                        </b>
+                        <a href="#createGame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createGame()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method : createGame
+Desc   : Create a name game with game id and password</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeForm"></a>
+                    <span class="name">
+                        <b>
+                            initializeForm
+                        </b>
+                        <a href="#initializeForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method : initializeForm
+Desc   : Initialize both JoinGameForm and CreateGameForm</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeLogin"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            initializeLogin
+                        </b>
+                        <a href="#initializeLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initializeLogin()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <b>
+                            ionViewWillEnter
+                        </b>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="joinGame"></a>
+                    <span class="name">
+                        <b>
+                            joinGame
+                        </b>
+                        <a href="#joinGame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>joinGame()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Method : joinGame
+Desc   : Join a existing game with user name and game id</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/login/login.page.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createGameForm"></a>
+                        <span class="name">
+                            <b>
+                            createGameForm</b>
+                            <a href="#createGameForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.page.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FORM_REGEX_VALIDATOR"></a>
+                        <span class="name">
+                            <b>
+                            FORM_REGEX_VALIDATOR</b>
+                            <a href="#FORM_REGEX_VALIDATOR"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>AppConstants.FORM_REGEX_VALIDATOR</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/login/login.page.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="joinGameForm"></a>
+                        <span class="name">
+                            <b>
+                            joinGameForm</b>
+                            <a href="#joinGameForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/login/login.page.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router, NavigationExtras } from &#x27;@angular/router&#x27;;
+import { FirebaseService } from &#x27;../../services/firebase/firebase.service&#x27;;
+import { LocalStorageService } from &#x27;../../services/local-storage/local-storage.service&#x27;;
+import { FormBuilder, Validators, FormGroup } from &#x27;@angular/forms&#x27;;
+import { MenuController } from &#x27;@ionic/angular&#x27;;
+import { AppConstants } from &#x27;../../constants/app-constants&#x27;;
+import { NewGameModel } from &#x27;src/app/models/NewGameModel&#x27;;
+import { Storage } from &#x27;@ionic/storage&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.page.html&#x27;,
+  styleUrls: [&#x27;./login.page.scss&#x27;],
+})
+export class LoginPage implements OnInit {
+
+  joinGameForm: FormGroup;
+  createGameForm: FormGroup;
+  FORM_REGEX_VALIDATOR &#x3D; AppConstants.FORM_REGEX_VALIDATOR;
+
+  constructor(
+    private menuController: MenuController,
+    private router: Router,
+    private storage: Storage,
+    private firebaseService: FirebaseService,
+    private localStorageService: LocalStorageService,
+    private formBuilder: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    // Checked Logged In User
+    this.initializeForm();
+    this.initializeLogin();
+  }
+
+  async initializeLogin(){
+    let loggedInUser &#x3D; await this.localStorageService.getLoggedInUser();
+    let gameDetails &#x3D; await this.localStorageService.getGameDetails();
+    if(loggedInUser){
+      console.log(&quot;Game Player&quot;);
+      this.router.navigate([&#x27;home&#x27;]);
+    }else if(gameDetails){
+      console.log(&quot;Game Moderator&quot;);
+      this.router.navigate([&#x27;list&#x27;]);
+    }else{
+      console.log(&quot;No active Logins&quot;);
+    }
+  }
+
+  ionViewWillEnter(){
+    this.menuController.enable(false);
+  }
+
+  /**
+   * Method : initializeForm
+   * Desc   : Initialize both JoinGameForm and CreateGameForm
+   */
+  initializeForm(){
+    this.joinGameForm &#x3D; this.formBuilder.group(
+      {
+        userName : [
+          &#x27;&#x27;, [Validators.required, Validators.pattern(this.FORM_REGEX_VALIDATOR.ALPHA_NUMERIC_DASH_NO_SPACE)]
+        ],
+        gameName : [
+          &#x27;&#x27;, [Validators.required, Validators.pattern(this.FORM_REGEX_VALIDATOR.ALPHA_NUMERIC_DASH_NO_SPACE)]
+        ]
+      }
+    );
+
+    this.createGameForm &#x3D; this.formBuilder.group(
+      {
+        gameName : [
+          &#x27;&#x27;, [Validators.required, Validators.pattern(this.FORM_REGEX_VALIDATOR.ALPHA_NUMERIC_DASH_NO_SPACE)]
+        ],
+        gamePassword : [
+          &#x27;&#x27;, [Validators.required, Validators.pattern(this.FORM_REGEX_VALIDATOR.ALPHA_NUMERIC_DASH_NO_SPACE)]
+        ]
+      }
+    );
+  }
+
+  /**
+   * Method : joinGame
+   * Desc   : Join a existing game with user name and game id
+   */
+  joinGame(){
+    console.log(&quot;Joining Game&quot;, this.joinGameForm.valid, this.joinGameForm.get(&quot;userName&quot;).value, this.joinGameForm.get(&quot;gameName&quot;).value);
+    
+    // console.log(this.firebaseService.addGame());
+
+    if(this.joinGameForm.valid){
+      this.firebaseService.addNewPlayer({
+        userName : this.joinGameForm.get(&quot;userName&quot;).value,
+        gameName: this.joinGameForm.get(&quot;gameName&quot;).value
+      });
+      this.router.navigate([&#x27;home&#x27;]);
+    }else{
+      console.log(&quot;Invalid Fields&quot;);
+    }
+  }
+
+  /**
+   * Method : createGame
+   * Desc   : Create a name game with game id and password
+   */
+  async createGame(){
+    if(this.createGameForm.valid){
+      let newGameObject : NewGameModel &#x3D; {
+        name : this.createGameForm.get(&quot;gameName&quot;).value,
+        password: this.createGameForm.get(&quot;gamePassword&quot;).value
+      };
+      
+      let createGameResponse &#x3D; await this.firebaseService.addNewGame(newGameObject);
+
+      if(createGameResponse){
+        // Add To LS
+        await this.localStorageService.addGameDetails(newGameObject);
+        let navigationExtras &#x3D; {
+          state : {
+            gameName : newGameObject.name 
+          }
+        }
+        this.router.navigate([&#x27;list&#x27;], navigationExtras);
+      }else{
+        console.log(&quot;Error in creating game&quot;);
+      } 
+    }else{
+      console.log(&quot;Invalid Fields&quot;);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;Mafia Game&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+    &lt;div class &#x3D; &quot;login-wrapper&quot;&gt;
+      &lt;div class &#x3D; &quot;join-game-section login-half-section&quot;&gt;
+          &lt;div class &#x3D; &quot;login-group&quot; [formGroup]&#x3D;&quot;joinGameForm&quot;&gt;
+            &lt;app-headings heading &#x3D; &quot;Join Game&quot; color &#x3D; &quot;white&quot; &gt;&lt;/app-headings&gt;
+            &lt;ion-item&gt;
+                &lt;ion-label&gt;
+                  Your Name
+                &lt;/ion-label&gt;
+                &lt;ion-input formControlName &#x3D; &quot;userName&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item&gt;
+                &lt;ion-label&gt;
+                  Game Name
+                &lt;/ion-label&gt;
+                &lt;ion-input formControlName &#x3D; &quot;gameName&quot;&gt;&lt;/ion-input&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-button expand&#x3D;&quot;full&quot; (click) &#x3D; &quot;joinGame()&quot;&gt;Join Game&lt;/ion-button&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class &#x3D; &quot;create-game-section login-half-section&quot;&gt;
+          &lt;div class &#x3D; &quot;login-group&quot; [formGroup]&#x3D;&quot;createGameForm&quot;&gt;
+              &lt;app-headings heading &#x3D; &quot;New Game? Create&quot; color &#x3D; &quot;white&quot;&gt;&lt;/app-headings&gt;
+              &lt;ion-item&gt;
+                  &lt;ion-label&gt;
+                    Game Id
+                  &lt;/ion-label&gt;
+                  &lt;ion-input formControlName &#x3D; &quot;gameName&quot;&gt;&lt;/ion-input&gt;
+              &lt;/ion-item&gt;
+              &lt;ion-item&gt;
+                  &lt;ion-label&gt;
+                    Password
+                  &lt;/ion-label&gt;
+                  &lt;ion-input formControlName &#x3D; &quot;gamePassword&quot; type &#x3D; &quot;password&quot;&gt;&lt;/ion-input&gt;
+              &lt;/ion-item&gt;
+              &lt;ion-button expand&#x3D;&quot;full&quot; (click) &#x3D; &quot;createGame()&quot;&gt;Create Game&lt;/ion-button&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./login.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.login-wrapper{
+    height: 100vh;
+    background: #112233;
+    .login-half-section{
+        height: 45vh;
+        padding: 8vh 4vh;
+    }
+    .join-game-section{
+        background: #445566;
+    }
+    .create-game-section{
+    }
+
+    .login-group{
+        width: 90%;
+        max-width: 500px;
+        margin: auto;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>Mafia Game</ion-title>  </ion-toolbar></ion-header><ion-content>    <div class = "login-wrapper">      <div class = "join-game-section login-half-section">          <div class = "login-group" [formGroup]="joinGameForm">            <app-headings heading = "Join Game" color = "white" ></app-headings>            <ion-item>                <ion-label>                  Your Name                </ion-label>                <ion-input formControlName = "userName"></ion-input>            </ion-item>            <ion-item>                <ion-label>                  Game Name                </ion-label>                <ion-input formControlName = "gameName"></ion-input>            </ion-item>            <ion-button expand="full" (click) = "joinGame()">Join Game</ion-button>          </div>      </div>      <div class = "create-game-section login-half-section">          <div class = "login-group" [formGroup]="createGameForm">              <app-headings heading = "New Game? Create" color = "white"></app-headings>              <ion-item>                  <ion-label>                    Game Id                  </ion-label>                  <ion-input formControlName = "gameName"></ion-input>              </ion-item>              <ion-item>                  <ion-label>                    Password                  </ion-label>                  <ion-input formControlName = "gamePassword" type = "password"></ion-input>              </ion-item>              <ion-button expand="full" (click) = "createGame()">Create Game</ion-button>          </div>      </div>    </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeadingsComponent', 'selector': 'app-headings'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'RolesPage', 'selector': 'app-roles'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

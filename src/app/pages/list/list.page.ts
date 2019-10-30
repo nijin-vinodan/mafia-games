@@ -46,6 +46,10 @@ export class ListPage implements OnInit {
     }
   }
 
+  /**
+   * Method : getPlayers
+   * Desc   : Subscribe to players who are joining the game
+   */
   getPlayers(){
     // Subscribe for Game Players
     this.firebaseService.playersData.subscribe(playersList => {
@@ -53,6 +57,11 @@ export class ListPage implements OnInit {
     })
   }
 
+  /**
+   * Method : assignRoles
+   * Role   : Create Game Functionality
+   * Desc   : To assign roles to the players. 
+   */
   assignRoles(){
     const navigationExtras: NavigationExtras = {
       state: {
