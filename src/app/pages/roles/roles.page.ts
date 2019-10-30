@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Storage } from '@ionic/storage';
 
 @Component({

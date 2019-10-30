@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {  MenuController } from '@ionic/angular';
 import { Game } from 'src/app/models/Game';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({

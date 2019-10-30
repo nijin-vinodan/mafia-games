@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { FirebaseService } from '../../services/firebase.service';
+import { FirebaseService } from '../../services/firebase/firebase.service';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MenuController } from '@ionic/angular';
