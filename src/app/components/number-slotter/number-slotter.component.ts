@@ -10,21 +10,21 @@ export class NumberSlotterComponent implements OnInit {
   /**
    * Variable to hold input count
    */
-  @Input() count : number = 0;
+  @Input() count = 0;
 
   /**
    * Variable to emit counter changes
    */
   @Output() counterChange = new EventEmitter();
-  
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   /**
    * Increment Counter Value
    */
-  incrementCount(){
+  incrementCount() {
     this.count += 1;
     this.counterChange.emit(this.count);
   }
@@ -32,11 +32,11 @@ export class NumberSlotterComponent implements OnInit {
   /**
    * Decrement Counter Value
    */
-  decrementCount(){
-    if(this.count - 1 >= 0){
+  decrementCount() {
+    if (this.count - 1 >= 0) {
       this.count -= 1;
       this.counterChange.emit(this.count);
-    } 
+    }
   }
-  
+
 }

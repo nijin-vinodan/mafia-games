@@ -1,4 +1,4 @@
-export interface Player{
-    name : string,
-    role : string
+export interface Player {
+    name: string;
+    role: string;
 }

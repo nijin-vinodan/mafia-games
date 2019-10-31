@@ -1,5 +1,5 @@
-import { Game } from "./Game";
+import { Game } from './Game';
 
-export interface MafiaGame{
-    game : Array<Game>
+export interface MafiaGame {
+    game: Array<Game>;
 }

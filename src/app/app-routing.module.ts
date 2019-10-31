@@ -15,13 +15,13 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./pages/list/list.module').then(m => m.ListPageModule)
   },
-  { 
-    path: 'login', 
+  {
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
-  { 
-    path: 'roles', 
-    loadChildren: './pages/roles/roles.module#RolesPageModule' 
+  {
+    path: 'roles',
+    loadChildren: './pages/roles/roles.module#RolesPageModule'
   }
 ];
 
