@@ -10,27 +10,27 @@ import { FirebaseServiceHelper } from '../../service-helpers/firebaseServiceHelp
 })
 
 export class FirebaseService {
-  private gameCollection : AngularFirestoreCollection;
+  private gameCollection: AngularFirestoreCollection;
   private configCollection: AngularFirestoreCollection;
   private rolesCollection: AngularFirestoreCollection;
 
-  gameData    : Observable<any>;
-  configData  : Observable<any>;
-  playersData : Observable<any>;
-  rolesData   : Observable<any>;
+  gameData: Observable<any>;
+  configData: Observable<any>;
+  playersData: Observable<any>;
+  rolesData: Observable<any>;
 
   /**
-   * Stores subscribed value of gameData.
+   * Stores subscribed values
    */
-  gameList : Array<any>;
+  gameList: Array<any>;
   configList: Array<any>;
-  rolesList : Array<any>;
+  rolesList: Array<any>;
 
   constructor(
-    db: AngularFirestore, 
-    private firebaseServiceHelper : FirebaseServiceHelper
-  ) { 
-    console.log("Service Started");
+    db: AngularFirestore,
+    private firebaseServiceHelper: FirebaseServiceHelper
+  ) {
+    console.log('Service Started');
     this.gameCollection = db.collection('game');
     this.configCollection = db.collection('game-config');
     this.rolesCollection = db.collection('roles');
@@ -39,7 +39,19 @@ export class FirebaseService {
     this.listenForData();
   }
 
-  listenForData(){
+  getGameList() {
+    return this.gameList;
+  }
+
+  getConfigList() {
+    return this.configList;
+  }
+
+  getRolesList() {
+    return this.rolesList;
+  }
+
+  listenForData() {
     this.gameData = this.gameCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
@@ -74,41 +86,40 @@ export class FirebaseService {
   }
 
   /**
-   * Method : subscribeForData
+   * Method: subscribeForData
    */
-  subscribeForData(){
+  subscribeForData() {
     this.gameData.subscribe(gameList => {
       this.gameList = gameList;
-    })
+    });
 
     this.configData.subscribe(configList => {
       this.configList = configList;
-    })
+    });
 
-    this.rolesData.subscribe(configList => {
-      this.rolesList = configList;
-    })
+    this.rolesData.subscribe(rolesList => {
+      this.rolesList = rolesList;
+    });
   }
 
   /**
-   * Method : addNewGame
-   * @param gameDetails 
+   * Method: addNewGame
+   * @param gameDetails
    */
-  async addNewGame(gameDetails : NewGameModel){
+  async addNewGame(gameDetails: NewGameModel) {
       // Check whether game name already exists
       let doesGameExist = this.firebaseServiceHelper.checkGameExists(this.gameList, gameDetails.name);
-      if(!doesGameExist){
+      if(!doesGameExist) {
         let result = await this.gameCollection.doc(gameDetails.name).set({
           password : gameDetails.password,
           status   : true
         });
         console.log(result);
         return true;
-      }else{
-        console.log("Game Name already exists");
+      } else {
+        console.log('Game Name already exists');
         return false;
       }
-      
   }
 
   /**
