@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'roles',
     loadChildren: './pages/roles/roles.module#RolesPageModule'
-  }
+  },
+  { path: 'configure', loadChildren: './pages/configure/configure.module#ConfigurePageModule' }
 ];
 
 @NgModule({

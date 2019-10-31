@@ -117,7 +117,7 @@ export class RolesPage implements OnInit {
         for ( let i = 1 ; i <= role.count ; i++ ) {
           const playerRole = new PlayerRole();
           playerRole.name = role.name;
-          if (role.count > 1) {
+          if (role.count > 1 && role.id !== 'mafia') {
             // Append Numbers for roles which is used multiple times
             playerRole.name =  `${playerRole.name} ${i}`;
           }

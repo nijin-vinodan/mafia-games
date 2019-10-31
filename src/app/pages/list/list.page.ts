@@ -66,7 +66,7 @@ export class ListPage implements OnInit {
     // To Do : Change playersCount to Dynamic players
     const navigationExtras: NavigationExtras = {
       state: {
-        playersCount : 5
+        playersCount : 11
       }
     };
     this.router.navigate(['roles'], navigationExtras);
