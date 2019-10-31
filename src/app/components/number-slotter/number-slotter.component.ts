@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-number-slotter',
@@ -7,17 +7,26 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class NumberSlotterComponent implements OnInit {
 
-  count = 0;
+  /**
+   * Variable to hold input count
+   */
+  @Input() count = 0;
+
+  /**
+   * Variable to emit counter changes
+   */
+  @Output() counterChange = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   /**
    * Increment Counter Value
    */
   incrementCount() {
     this.count += 1;
+    this.counterChange.emit(this.count);
   }
 
   /**
@@ -26,6 +35,7 @@ export class NumberSlotterComponent implements OnInit {
   decrementCount() {
     if (this.count - 1 >= 0) {
       this.count -= 1;
+      this.counterChange.emit(this.count);
     }
   }
 
