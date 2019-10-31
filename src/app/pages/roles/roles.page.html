@@ -13,11 +13,9 @@
   <h2></h2>
   <ion-list>
     <ion-item *ngFor="let role of roles">
-      
-      {{role.role}}
-
+      {{role.name}}
       <div class="item-note" slot="end">
-        {{role.count}}
+        <app-number-slotter ></app-number-slotter>
       </div>
     </ion-item>
   </ion-list>
