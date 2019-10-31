@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HeadingsComponent } from '../components/headings/headings.component';
+import { NumberSlotterComponent } from '../components/number-slotter/number-slotter.component';
 
 @NgModule({
     imports: [
@@ -12,10 +13,12 @@ import { HeadingsComponent } from '../components/headings/headings.component';
       IonicModule
     ],
     declarations: [
-        HeadingsComponent
+        HeadingsComponent,
+        NumberSlotterComponent
     ],
     exports: [
-        HeadingsComponent
+        HeadingsComponent,
+        NumberSlotterComponent
     ]
 })
 

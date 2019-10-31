@@ -3,6 +3,7 @@ import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
+
 /**
  * Page to display list of available roles for the game
  */
@@ -39,6 +40,14 @@ export class RolesPage implements OnInit {
    * ngOnInit
    */
   ngOnInit(){
+    
+  }
+
+  /**
+   * Ion View Will Enter
+   */
+  ionViewWillEnter(){
+    this.getAllRoles();
     if (window.history.state) {
       this.playersCount = window.history.state.playersCount;
       if(this.playersCount){
@@ -55,7 +64,9 @@ export class RolesPage implements OnInit {
    * Get All Roles in the Game
    */
   getAllRoles(){
-
+    this.firebaseService.rolesData.subscribe(roles => {
+        this.roles = roles;
+   })
   }
 
   /**
@@ -63,12 +74,12 @@ export class RolesPage implements OnInit {
    */
   getRolesConfiguration(){
     this.firebaseService.configData.subscribe(roles => {
-       for(let i = 0 ; i < roles.length ; i++){
-         if(roles[i].id === "players_" + this.playersCount){
-          this.roles = roles[i].players;
-          break;
-         }
-       }
+      //  for(let i = 0 ; i < roles.length ; i++){
+      //    if(roles[i].id === "players_" + this.playersCount){
+      //     this.roles = roles[i].players;
+      //     break;
+      //    }
+      //  }
     })
   }
 

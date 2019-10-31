@@ -12,23 +12,28 @@ import { FirebaseServiceHelper } from '../../service-helpers/firebaseServiceHelp
 export class FirebaseService {
   private gameCollection : AngularFirestoreCollection;
   private configCollection: AngularFirestoreCollection;
+  private rolesCollection: AngularFirestoreCollection;
 
   gameData    : Observable<any>;
   configData  : Observable<any>;
   playersData : Observable<any>;
+  rolesData   : Observable<any>;
 
   /**
    * Stores subscribed value of gameData.
    */
   gameList : Array<any>;
   configList: Array<any>;
+  rolesList : Array<any>;
 
   constructor(
     db: AngularFirestore, 
     private firebaseServiceHelper : FirebaseServiceHelper
   ) { 
+    console.log("Service Started");
     this.gameCollection = db.collection('game');
     this.configCollection = db.collection('game-config');
+    this.rolesCollection = db.collection('roles');
 
     // Listen for Data Changes in Firebase
     this.listenForData();
@@ -55,6 +60,16 @@ export class FirebaseService {
       })
     );
 
+    this.rolesData = this.rolesCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+
     this.subscribeForData();
   }
 
@@ -68,6 +83,10 @@ export class FirebaseService {
 
     this.configData.subscribe(configList => {
       this.configList = configList;
+    })
+
+    this.rolesData.subscribe(configList => {
+      this.rolesList = configList;
     })
   }
 
