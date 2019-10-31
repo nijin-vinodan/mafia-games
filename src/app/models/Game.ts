@@ -1,6 +1,6 @@
-import { Player } from "./Player";
+import { Player } from './Player';
 
-export interface Game{
-    name?: string,
-    players? : Array<Player>
+export interface Game {
+    name?: string;
+    players?: Array<Player>;
 }

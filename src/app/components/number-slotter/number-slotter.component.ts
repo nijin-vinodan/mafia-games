@@ -7,8 +7,8 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class NumberSlotterComponent implements OnInit {
 
-  count : number = 0;
-  
+  count = 0;
+
   constructor() { }
 
   ngOnInit() {}
@@ -16,17 +16,17 @@ export class NumberSlotterComponent implements OnInit {
   /**
    * Increment Counter Value
    */
-  incrementCount(){
+  incrementCount() {
     this.count += 1;
   }
 
   /**
    * Decrement Counter Value
    */
-  decrementCount(){
-    if(this.count - 1 >= 0){
+  decrementCount() {
+    if (this.count - 1 >= 0) {
       this.count -= 1;
-    } 
+    }
   }
 
 }

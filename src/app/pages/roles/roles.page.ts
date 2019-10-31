@@ -16,7 +16,7 @@ export class RolesPage implements OnInit {
   /**
    * playersCount - List of active participants in the game. State variable from previous list page
    */
-  playersCount : Number;
+  playersCount: Number;
   /**
    * roles - List of available roles with their number in the game
    */
@@ -24,37 +24,37 @@ export class RolesPage implements OnInit {
 
   /**
    * Constructor
-   * @param firebaseService 
-   * @param router 
-   * @param storage 
+   * @param firebaseService
+   * @param router
+   * @param storage
    */
   constructor(
     private firebaseService: FirebaseService,
-    private router : Router,
+    private router: Router,
     private storage: Storage
-  ) { 
+  ) {
     this.firebaseService.listenForData();
   }
 
   /**
    * ngOnInit
    */
-  ngOnInit(){
-    
+  ngOnInit() {
+
   }
 
   /**
    * Ion View Will Enter
    */
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.getAllRoles();
     if (window.history.state) {
       this.playersCount = window.history.state.playersCount;
-      if(this.playersCount){
+      if (this.playersCount) {
         this.getRolesConfiguration();
-      }else{
+      } else {
         // Navigate back to list as state [playersCount] is not available
-        this.router.navigate(['list']); 
+        this.router.navigate(['list']);
       }
     }
   }
@@ -63,16 +63,16 @@ export class RolesPage implements OnInit {
   /**
    * Get All Roles in the Game
    */
-  getAllRoles(){
+  getAllRoles() {
     this.firebaseService.rolesData.subscribe(roles => {
         this.roles = roles;
-   })
+   });
   }
 
   /**
    * Get list of roles configurations available for the given playersCount from Firebase
    */
-  getRolesConfiguration(){
+  getRolesConfiguration() {
     this.firebaseService.configData.subscribe(roles => {
       //  for(let i = 0 ; i < roles.length ; i++){
       //    if(roles[i].id === "players_" + this.playersCount){
@@ -80,21 +80,21 @@ export class RolesPage implements OnInit {
       //     break;
       //    }
       //  }
-    })
+    });
   }
 
 
   /**
    * Assign Roles to Players in Random Fashion Order
    */
-  assignRoles(){
-    
+  assignRoles() {
+
   }
 
   /**
    * Start Game
    */
-  startGame(){
-    console.log("Start Game");
+  startGame() {
+    console.log('Start Game');
   }
 }

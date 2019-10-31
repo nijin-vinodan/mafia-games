@@ -13,7 +13,7 @@ import { Router, NavigationExtras } from '@angular/router';
 export class ListPage implements OnInit {
 
   game: Game;
-  players : Array<any>;
+  players: Array<any>;
 
   constructor(
     private menuController: MenuController,
@@ -24,24 +24,24 @@ export class ListPage implements OnInit {
     this.game = {};
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.menuController.enable(true);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.initializePage();
   }
 
   /**
    * Method : initializePage
    */
-  async initializePage(){
-    let gameDetails = await this.localStorageService.getGameDetails();
-    if(gameDetails){
+  async initializePage() {
+    const gameDetails = await this.localStorageService.getGameDetails();
+    if (gameDetails) {
       this.game.name = gameDetails.name;
       this.firebaseService.getPlayersForGame(this.game.name);
       this.getPlayers();
-    }else{
+    } else {
       // Navigate to Login
     }
   }
@@ -50,19 +50,19 @@ export class ListPage implements OnInit {
    * Method : getPlayers
    * Desc   : Subscribe to players who are joining the game
    */
-  getPlayers(){
+  getPlayers() {
     // Subscribe for Game Players
     this.firebaseService.playersData.subscribe(playersList => {
       this.players = playersList;
-    })
+    });
   }
 
   /**
    * Method : assignRoles
    * Role   : Create Game Functionality
-   * Desc   : To assign roles to the players. 
+   * Desc   : To assign roles to the players.
    */
-  assignRoles(){
+  assignRoles() {
     // To Do : Change playersCount to Dynamic players
     const navigationExtras: NavigationExtras = {
       state: {
