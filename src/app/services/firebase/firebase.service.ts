@@ -102,6 +102,23 @@ export class FirebaseService {
     });
   }
 
+
+  /**
+   * Method : getPlayersForAGame
+   * @param gameName
+   */
+  getPlayersForGame(gameName) {
+    this.playersData = this.gameCollection.doc(gameName).collection('players').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
+  }
+
   /**
    * Method : addNewGame
    * @param gameDetails
@@ -134,18 +151,12 @@ export class FirebaseService {
   }
 
   /**
-   * Method : getPlayersForAGame
-   * @param gameName
+   * 
+   * @param configuration
    */
-  getPlayersForGame(gameName) {
-    this.playersData = this.gameCollection.doc(gameName).collection('players').snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    );
+  addNewConfig(configuration) {
+    return this.configCollection.doc(configuration.name).set({
+      players : configuration.players
+    });
   }
 }
