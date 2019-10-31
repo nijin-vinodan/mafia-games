@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { PlayerRole } from 'src/app/models/PlayerRole';
 
 
 /**
@@ -42,19 +43,18 @@ export class RolesPage implements OnInit {
   /**
    * ngOnInit
    */
-  ngOnInit(){
+  ngOnInit() {
   }
 
   /**
    * Ion View Will Enter
    */
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.roles = this.firebaseService.getRolesList();
     this.getRolesConfiguration();
     if (window.history.state) {
       this.playersCount = window.history.state.playersCount;
-      if(!this.playersCount){
-        // this.playersCount = 5;
+      if (!this.playersCount) {
         // Navigate back to list as state [playersCount] is not available
         this.router.navigate(['list']);
       }
@@ -101,21 +101,53 @@ export class RolesPage implements OnInit {
   /**
    * Assign Roles to Players in Random Fashion Order
    */
-  assignRoles(){}
+  assignRoles() {}
+
+
+  /**
+   * Choose Moderator selected roles and assign them based on count
+   * @example A Game might contain many detectives. Provide names like Detective 1, Detective 2 etc.
+   */
+  processRoles(roles) {
+    const playerRoles = Array<PlayerRole>();
+    // Loop through all roles
+    for (const role of roles) {
+      if ( role.count > 0 ) {
+        // Loop through count of role
+        for ( let i = 1 ; i <= role.count ; i++ ) {
+          const playerRole = new PlayerRole();
+          playerRole.name = role.name;
+          if (role.count > 1) {
+            // Append Numbers for roles which is used multiple times
+            playerRole.name =  `${playerRole.name} ${i}`;
+          }
+          playerRole.role = role.id;
+          playerRoles.push(playerRole);
+        }
+      }
+    }
+    console.log(playerRoles);
+    return playerRoles;
+  }
 
   /**
    * Start Game
    */
-  startGame(){
-    console.log('Start Game');
+  startGame() {
+    console.log('Start Game', this.roles);
+    this.processRoles(this.roles);
   }
 
   /**
    * Update role count. Moderator has flexibility to change the roles count.
    * @param count
-   * @param code
+   * @param roleId
    */
-  updateRoleCount(count: number, code: string) {
-
+  updateRoleCount(count: number, roleId: string) {
+    for ( let i = 0 ; i < this.roles.length ; i++ ) {
+      if ( this.roles[i].id === roleId ) {
+        this.roles[i].count = count;
+      }
+    }
   }
 }

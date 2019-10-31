@@ -15,7 +15,7 @@
     <ion-item *ngFor="let role of roles">
       {{role.name}}
       <div class="item-note" slot="end">
-        <app-number-slotter [count] = "role.count" (counterChange) = "updateRoleCount($event, role.code)"></app-number-slotter>
+        <app-number-slotter [count] = "role.count" (counterChange) = "updateRoleCount($event, role.id)"></app-number-slotter>
       </div>
     </ion-item>
   </ion-list>
