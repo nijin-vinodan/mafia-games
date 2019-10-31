@@ -151,7 +151,7 @@ export class FirebaseService {
   }
 
   /**
-   * 
+   *
    * @param configuration
    */
   addNewConfig(configuration) {
