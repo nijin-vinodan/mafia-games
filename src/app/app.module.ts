@@ -37,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
-    LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG, disableConsoleLogging: false, serverLogLevel: NgxLoggerLevel.OFF })
+    LoggerModule.forRoot(environment.logger)
   ],
   providers: [
     StatusBar,
