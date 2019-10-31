@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeadingsComponent implements OnInit {
 
   @Input() heading: string;
-  @Input() textSize: string = "14px";
-  
+  @Input() textSize = '14px';
+
   constructor() { }
 
   ngOnInit() {}

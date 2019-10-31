@@ -34,21 +34,21 @@ export class LoginPage implements OnInit {
     this.initializeLogin();
   }
 
-  async initializeLogin(){
-    let loggedInUser = await this.localStorageService.getLoggedInUser();
-    let gameDetails = await this.localStorageService.getGameDetails();
-    if(loggedInUser){
-      console.log("Game Player");
+  async initializeLogin() {
+    const loggedInUser = await this.localStorageService.getLoggedInUser();
+    const gameDetails = await this.localStorageService.getGameDetails();
+    if (loggedInUser) {
+      console.log('Game Player');
       this.router.navigate(['home']);
-    }else if(gameDetails){
-      console.log("Game Moderator");
+    } else if (gameDetails) {
+      console.log('Game Moderator');
       this.router.navigate(['list']);
-    }else{
-      console.log("No active Logins");
+    } else {
+      console.log('No active Logins');
     }
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.menuController.enable(false);
   }
 
@@ -56,7 +56,7 @@ export class LoginPage implements OnInit {
    * Method : initializeForm
    * Desc   : Initialize both JoinGameForm and CreateGameForm
    */
-  initializeForm(){
+  initializeForm() {
     this.joinGameForm = this.formBuilder.group(
       {
         userName : [
@@ -84,19 +84,19 @@ export class LoginPage implements OnInit {
    * Method : joinGame
    * Desc   : Join a existing game with user name and game id
    */
-  joinGame(){
-    console.log("Joining Game", this.joinGameForm.valid, this.joinGameForm.get("userName").value, this.joinGameForm.get("gameName").value);
-    
+  joinGame() {
+    console.log('Joining Game', this.joinGameForm.valid, this.joinGameForm.get('userName').value, this.joinGameForm.get('gameName').value);
+
     // console.log(this.firebaseService.addGame());
 
-    if(this.joinGameForm.valid){
+    if (this.joinGameForm.valid) {
       this.firebaseService.addNewPlayer({
-        userName : this.joinGameForm.get("userName").value,
-        gameName: this.joinGameForm.get("gameName").value
+        userName : this.joinGameForm.get('userName').value,
+        gameName: this.joinGameForm.get('gameName').value
       });
       this.router.navigate(['home']);
-    }else{
-      console.log("Invalid Fields");
+    } else {
+      console.log('Invalid Fields');
     }
   }
 
@@ -104,29 +104,29 @@ export class LoginPage implements OnInit {
    * Method : createGame
    * Desc   : Create a name game with game id and password
    */
-  async createGame(){
-    if(this.createGameForm.valid){
-      let newGameObject : NewGameModel = {
-        name : this.createGameForm.get("gameName").value,
-        password: this.createGameForm.get("gamePassword").value
+  async createGame() {
+    if (this.createGameForm.valid) {
+      const newGameObject: NewGameModel = {
+        name : this.createGameForm.get('gameName').value,
+        password: this.createGameForm.get('gamePassword').value
       };
-      
-      let createGameResponse = await this.firebaseService.addNewGame(newGameObject);
 
-      if(createGameResponse){
+      const createGameResponse = await this.firebaseService.addNewGame(newGameObject);
+
+      if (createGameResponse) {
         // Add To LS
         await this.localStorageService.addGameDetails(newGameObject);
-        let navigationExtras = {
+        const navigationExtras = {
           state : {
-            gameName : newGameObject.name 
+            gameName : newGameObject.name
           }
-        }
+        };
         this.router.navigate(['list'], navigationExtras);
-      }else{
-        console.log("Error in creating game");
-      } 
-    }else{
-      console.log("Invalid Fields");
+      } else {
+        console.log('Error in creating game');
+      }
+    } else {
+      console.log('Invalid Fields');
     }
   }
 }

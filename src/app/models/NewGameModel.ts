@@ -1,4 +1,4 @@
-export interface NewGameModel{
-    name: string,
-    password: string
+export interface NewGameModel {
+    name: string;
+    password: string;
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { NewGameModel } from '../../models/NewGameModel';
 import { FirebaseServiceHelper } from '../../service-helpers/firebaseServiceHelper';
 
@@ -103,14 +103,14 @@ export class FirebaseService {
   }
 
   /**
-   * Method: addNewGame
+   * Method : addNewGame
    * @param gameDetails
    */
   async addNewGame(gameDetails: NewGameModel) {
       // Check whether game name already exists
-      let doesGameExist = this.firebaseServiceHelper.checkGameExists(this.gameList, gameDetails.name);
-      if(!doesGameExist) {
-        let result = await this.gameCollection.doc(gameDetails.name).set({
+      const doesGameExist = this.firebaseServiceHelper.checkGameExists(this.gameList, gameDetails.name);
+      if (!doesGameExist) {
+        const result = await this.gameCollection.doc(gameDetails.name).set({
           password : gameDetails.password,
           status   : true
         });
@@ -124,21 +124,21 @@ export class FirebaseService {
 
   /**
    * Method : addNewPlayer
-   * @param userDetails 
+   * @param userDetails
    */
-  addNewPlayer(userDetails){
-    return this.gameCollection.doc(userDetails.gameName).collection("players").add({
+  addNewPlayer(userDetails) {
+    return this.gameCollection.doc(userDetails.gameName).collection('players').add({
       name : userDetails.userName,
-      role : "not-assigned"
+      role : 'not-assigned'
     });
   }
 
   /**
    * Method : getPlayersForAGame
-   * @param gameName 
+   * @param gameName
    */
-  getPlayersForGame(gameName){
-    this.playersData = this.gameCollection.doc(gameName).collection("players").snapshotChanges().pipe(
+  getPlayersForGame(gameName) {
+    this.playersData = this.gameCollection.doc(gameName).collection('players').snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -148,6 +148,4 @@ export class FirebaseService {
       })
     );
   }
-
-
 }

@@ -1,4 +1,4 @@
-export class AppConstants{
+export class AppConstants {
     public static FORM_REGEX_VALIDATOR = {
         ALPHA: '^[a-zA-Z]+$',
         NUMERIC: '^[0-9]*$',

@@ -33,7 +33,7 @@ export class RolesPage implements OnInit {
    */
   constructor(
     private firebaseService: FirebaseService,
-    private router : Router,
+    private router: Router,
     private storage: Storage
   ) {
     this.firebaseService.listenForData();
@@ -56,7 +56,7 @@ export class RolesPage implements OnInit {
       if(!this.playersCount){
         // this.playersCount = 5;
         // Navigate back to list as state [playersCount] is not available
-        this.router.navigate(['list']); 
+        this.router.navigate(['list']);
       }
     }
   }
@@ -81,12 +81,12 @@ export class RolesPage implements OnInit {
   /**
    * Map Roles to Configuration based on Player Count. This method will combine the roles configuration to all roles.
    */
-  mapRolesToConfiguration(){
+  mapRolesToConfiguration() {
     const _this = this;
-    if(this.roles.length > 0 && this.roleConfigurations.length > 0){
-      for(let i = 0 ; i < this.roles.length ; i++){
-        let config = this.roleConfigurations.filter(config => {
-          return config.role === _this.roles[i].id;
+    if (this.roles.length > 0 && this.roleConfigurations.length > 0) {
+      for (let i = 0; i < this.roles.length; i++) {
+        const config = this.roleConfigurations.filter(configuration => {
+          return configuration.role === _this.roles[i].id;
         });
         if (config.length > 0) {
           this.roles[i].count = config[0].count;
@@ -115,7 +115,7 @@ export class RolesPage implements OnInit {
    * @param count
    * @param code
    */
-  updateRoleCount(count: number, code: string){
-    
+  updateRoleCount(count: number, code: string) {
+
   }
 }

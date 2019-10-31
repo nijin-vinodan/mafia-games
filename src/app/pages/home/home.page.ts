@@ -12,7 +12,7 @@ export class HomePage {
     private menuController: MenuController
   ) {}
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.menuController.enable(true);
   }
 }
