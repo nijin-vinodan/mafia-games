@@ -13,7 +13,7 @@ export class LocalStorageService {
   ) { }
 
   /**
-   * Method : getLoggedInUser
+   * Get Logged In User Details from Local Storage
    */
   async getLoggedInUser() {
     return await this.storage.get(AppConstants.LOCAL_STORAGE.LOGGED_IN_USER).then(val => {
@@ -22,8 +22,7 @@ export class LocalStorageService {
   }
 
   /**
-   * Method : getGameDetails
-   * @param gameName
+   * Get Game Details From Local Storage
    */
   async getGameDetails() {
     return await this.storage.get(AppConstants.LOCAL_STORAGE.GAME_DETAILS).then(val => {
@@ -32,7 +31,7 @@ export class LocalStorageService {
   }
 
   /**
-   * Method : addGameDetails
+   * Add Game Details to Local Storage
    * @param gameName
    * @param password
    */
@@ -42,7 +41,28 @@ export class LocalStorageService {
     });
   }
 
+  /**
+   * Get Game Role Configurations From Local Storage
+   */
+  async getGameRoleConfigurations() {
+    return await this.storage.get(AppConstants.LOCAL_STORAGE.GAME_ROLE_CONFIGURATIONS).then(val => {
+      return val;
+    });
+  }
 
+  /**
+   * Save Game Role Configurations to Local Storage
+   * @param roleConfigObj
+   */
+  async addGameRoleConfigurations(roleConfigObj) {
+    return await this.storage.set(AppConstants.LOCAL_STORAGE.GAME_ROLE_CONFIGURATIONS, roleConfigObj).then(val => {
+      return val;
+    });
+  }
+
+  /**
+   * Clear Local Storage
+   */
   async removeLocalStorage() {
     await this.storage.remove(AppConstants.LOCAL_STORAGE.LOGGED_IN_USER);
     await this.storage.remove(AppConstants.LOCAL_STORAGE.GAME_DETAILS);

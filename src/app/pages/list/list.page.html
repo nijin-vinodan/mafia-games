@@ -11,9 +11,17 @@
 
 <ion-content>
   <h2>{{ game.name }}</h2>
+  
+  <ion-list *ngIf = "!players">
+    <ion-item >
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-item>
+    <ion-item >
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </ion-item>
+  </ion-list>
   <ion-list>
-    <ion-item *ngFor="let player of players">
-      
+    <ion-item *ngFor="let player of players">  
       {{player.name}}
 
       <div class="item-note" slot="end">

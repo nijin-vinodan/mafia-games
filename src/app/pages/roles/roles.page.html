@@ -10,9 +10,11 @@
 </ion-header>
 
 <ion-content>
-  <h2></h2>
   <ion-list>
     <ion-item *ngFor="let role of roles">
+      <div class="item-note" slot="start">
+        {{ role.isGoodPerson }}
+      </div>
       {{role.name}}
       <div class="item-note" slot="end">
         <app-number-slotter [count] = "role.count" (counterChange) = "updateRoleCount($event, role.id)"></app-number-slotter>
@@ -20,6 +22,25 @@
     </ion-item>
   </ion-list>
   <div>
-    <ion-button (click) = "startGame()">Start Game</ion-button>
+    <ion-button (click) = "assignRoles()">Assign Roles</ion-button>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class = "">TOTAL PLAYERS</div>{{ players && players.length }}
+        </ion-col>
+        <ion-col>
+          <div class = "">GOOD ROLES</div>{{ counter.goodRoles }}
+        </ion-col>
+        <ion-col>
+          <div class = "">BAD ROLES</div>{{ counter.badRoles }}
+        </ion-col>
+        <ion-col>
+          <div class = "">TOTAL ROLES</div>{{ counter.badRoles + counter.goodRoles }}
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-footer>

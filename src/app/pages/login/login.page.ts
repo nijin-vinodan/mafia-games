@@ -6,7 +6,6 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MenuController } from '@ionic/angular';
 import { AppConstants } from '../../constants/app-constants';
 import { NewGameModel } from 'src/app/models/NewGameModel';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +21,6 @@ export class LoginPage implements OnInit {
   constructor(
     private menuController: MenuController,
     private router: Router,
-    private storage: Storage,
     private firebaseService: FirebaseService,
     private localStorageService: LocalStorageService,
     private formBuilder: FormBuilder

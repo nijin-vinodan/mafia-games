@@ -9,6 +9,7 @@ export class AppConstants {
 
     public static LOCAL_STORAGE = {
         LOGGED_IN_USER : 'loggedInUser',
-        GAME_DETAILS : 'gameDetails'
+        GAME_DETAILS : 'gameDetails',
+        GAME_ROLE_CONFIGURATIONS : 'gameRoleConfigurations'
     };
 }
