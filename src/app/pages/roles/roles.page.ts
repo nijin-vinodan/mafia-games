@@ -8,7 +8,6 @@ import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ConfirmRoleModalPage } from '../../modals/confirm-role-modal/confirm-role-modal.page';
-import { AppConstants } from 'src/app/constants/app-constants';
 
 /**
  * Page to display list of available roles for the game
@@ -187,8 +186,7 @@ export class RolesPage implements OnInit {
       }
       console.log(players);
       this.hideLoader();
-      this.startGame(players);
-      // this.confirmRoleModal();
+      this.confirmRoleModal(players);
     } else {
       const toast = await this.toastController.create({
         message: 'Selected Roles does not match the number of players',
@@ -203,12 +201,20 @@ export class RolesPage implements OnInit {
   /**
    *
    */
-  // async confirmRoleModal() {
-  //   const modal = await this.modalController.create({
-  //     component: ConfirmRoleModalPage
-  //   });
-  //   return await modal.present();
-  // }
+  async confirmRoleModal(players) {
+    const modal = await this.modalController.create({
+      component: ConfirmRoleModalPage,
+      componentProps: {
+        players: players
+      }
+    });
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+    if (data === 'confirm') {
+      this.startGame(players);
+    } 
+  }
 
   /**
    * Push Roles to Users

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-confirm-role-modal',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmRoleModalPage implements OnInit {
 
-  constructor() { }
+  @Input() players;
+
+  constructor(
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
+    console.log(this.players);
   }
 
+  dismiss(action) {
+    this.modalController.dismiss(action);
+  }
 }

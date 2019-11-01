@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content>
-  Confirm Role Modal
+  <ion-list>
+    <ion-item *ngFor="let player of players">  
+      {{player.name}}
+      <div class="item-note" slot="end">
+        {{player.role}}
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-button (click) = "dismiss('cancel')" color = "secondary">Cancel</ion-button>
+  <ion-button (click) = "dismiss('confirm')">Confirm</ion-button>
+</ion-footer>

@@ -21,7 +21,7 @@ import { environment } from '../environments/environment';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ConfirmRoleModalPage } from './modals/confirm-role-modal/confirm-role-modal.page';
+import { ConfirmRoleModalPageModule } from './modals/confirm-role-modal/confirm-role-modal.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { ConfirmRoleModalPage } from './modals/confirm-role-modal/confirm-role-m
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    ConfirmRoleModalPageModule,
     SharedModule,
     HttpClientModule,
     LoggerModule.forRoot(environment.logger)

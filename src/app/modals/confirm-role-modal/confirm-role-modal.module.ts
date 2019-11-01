@@ -22,6 +22,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [ConfirmRoleModalPage],
-  entryComponents: [ConfirmRoleModalPage]
+  entryComponents: []
 })
 export class ConfirmRoleModalPageModule {}
