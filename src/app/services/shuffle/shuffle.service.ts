@@ -12,7 +12,7 @@ export class ShuffleService {
    * Randomize a given array
    * @param arr
    */
-  private randomize(arr) {
+  private async randomize(arr) {
     let counter: number = arr.length;
     let temp, index;
     while (counter > 0) {
@@ -32,11 +32,11 @@ export class ShuffleService {
   async shuffle(arr) {
     let times = this.times;
     while ( times ) {
-      console.log("Randomizing");
-      arr = this.randomize(arr);
+      console.log('Randomizing');
+      arr = await this.randomize(arr);
       times--;
     }
-    return arr;
+    return await arr;
   }
 }
 

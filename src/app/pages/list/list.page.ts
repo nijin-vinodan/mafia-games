@@ -4,6 +4,7 @@ import { Game } from 'src/app/models/Game';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { FirebaseService } from '../../services/firebase/firebase.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { AppConstants } from 'src/app/constants/app-constants';
 
 @Component({
   selector: 'app-list',
@@ -58,9 +59,7 @@ export class ListPage implements OnInit {
   }
 
   /**
-   * Method : assignRoles
-   * Role   : Create Game Functionality
-   * Desc   : To assign roles to the players.
+   * Assign Roles
    */
   assignRoles() {
     // To Do : Change playersCount to Dynamic players
@@ -70,5 +69,16 @@ export class ListPage implements OnInit {
       }
     };
     this.router.navigate(['roles'], navigationExtras);
+  }
+
+  /**
+   * Reset Roles
+   */
+  async resetRoles() {
+    const players = this.players;
+    for ( let i = 0 ; i < players.length ; i++ ) {
+      players[i].role = AppConstants.ROLES.NOT_ASSIGNED;
+    }
+    await this.firebaseService.updatePlayersWithRoles(this.game.name, players);
   }
 }

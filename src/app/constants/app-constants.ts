@@ -1,4 +1,9 @@
 export class AppConstants {
+
+    public static ROLES = {
+        NOT_ASSIGNED : 'not-assigned'
+    };
+
     public static FORM_REGEX_VALIDATOR = {
         ALPHA: '^[a-zA-Z]+$',
         NUMERIC: '^[0-9]*$',

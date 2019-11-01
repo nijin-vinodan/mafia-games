@@ -21,6 +21,8 @@ import { environment } from '../environments/environment';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ConfirmRoleModalPage } from './modals/confirm-role-modal/confirm-role-modal.page';
+
 @NgModule({
   declarations: [
     AppComponent

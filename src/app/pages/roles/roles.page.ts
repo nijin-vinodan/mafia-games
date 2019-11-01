@@ -6,7 +6,9 @@ import { PlayerRole } from 'src/app/models/PlayerRole';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-
+import { ModalController } from '@ionic/angular';
+import { ConfirmRoleModalPage } from '../../modals/confirm-role-modal/confirm-role-modal.page';
+import { AppConstants } from 'src/app/constants/app-constants';
 
 /**
  * Page to display list of available roles for the game
@@ -47,6 +49,7 @@ export class RolesPage implements OnInit {
     private firebaseService: FirebaseService,
     private localStorageService: LocalStorageService,
     private loadingController: LoadingController,
+    private modalController: ModalController,
     private router: Router,
     private shuffleService: ShuffleService,
     private toastController: ToastController
@@ -178,12 +181,14 @@ export class RolesPage implements OnInit {
       await this.showLoader('Assigning Roles');
       const roles = await this.shuffleService.shuffle(this.processRoles(this.roles));
       const players = await this.shuffleService.shuffle(this.players);
-      this.hideLoader();
       // Assign Roles to Players
       for ( let i = 0 ; i < players.length ; i++ ) {
         players[i].role = roles[i].role;
       }
       console.log(players);
+      this.hideLoader();
+      this.startGame(players);
+      // this.confirmRoleModal();
     } else {
       const toast = await this.toastController.create({
         message: 'Selected Roles does not match the number of players',
@@ -195,6 +200,26 @@ export class RolesPage implements OnInit {
     }
   }
 
+  /**
+   *
+   */
+  // async confirmRoleModal() {
+  //   const modal = await this.modalController.create({
+  //     component: ConfirmRoleModalPage
+  //   });
+  //   return await modal.present();
+  // }
+
+  /**
+   * Push Roles to Users
+   * @param gameName
+   * @param players
+   */
+  async startGame(players) {
+    const game = await this.localStorageService.getGameDetails();
+    await this.firebaseService.updatePlayersWithRoles(game.name, players);
+    this.router.navigate(['list']);
+  }
 
   /**
    * Choose Moderator selected roles and assign them based on count

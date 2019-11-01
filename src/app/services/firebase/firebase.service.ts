@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NewGameModel } from '../../models/NewGameModel';
 import { FirebaseServiceHelper } from '../../service-helpers/firebaseServiceHelper';
+import { AppConstants } from 'src/app/constants/app-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -146,8 +147,17 @@ export class FirebaseService {
   addNewPlayer(userDetails) {
     return this.gameCollection.doc(userDetails.gameName).collection('players').add({
       name : userDetails.userName,
-      role : 'not-assigned'
+      role : AppConstants.ROLES.NOT_ASSIGNED
     });
+  }
+
+  updatePlayersWithRoles(gameName, players) {
+    for ( const player of players ) {
+      this.gameCollection.doc(gameName).collection('players').doc(player.id).set({
+        role : player.role,
+        name : player.name
+      });
+    }
   }
 
   /**

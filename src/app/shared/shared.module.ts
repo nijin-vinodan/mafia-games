@@ -18,7 +18,7 @@ import { NumberSlotterComponent } from '../components/number-slotter/number-slot
     ],
     exports: [
         HeadingsComponent,
-        NumberSlotterComponent
+        NumberSlotterComponent,
     ]
 })
 
