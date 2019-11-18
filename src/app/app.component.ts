@@ -22,6 +22,11 @@ export class AppComponent {
       title: 'Players List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Roles List',
+      url: '/role-list',
+      icon: 'list'
     }
   ];
 

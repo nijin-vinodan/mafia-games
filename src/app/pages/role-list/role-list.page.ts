@@ -7,24 +7,21 @@ import { Router, NavigationExtras } from '@angular/router';
 import { AppConstants } from 'src/app/constants/app-constants';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: 'list.page.html',
-  styleUrls: ['list.page.scss']
+  selector: 'app-role-list',
+  templateUrl: './role-list.page.html',
+  styleUrls: ['./role-list.page.scss'],
 })
-export class ListPage implements OnInit {
-
+export class RoleListPage implements OnInit {
   page = 0;
   game: Game;
   players: Array<any>;
-
+  
   constructor(
     private menuController: MenuController,
     private router: Router,
     private firebaseService: FirebaseService,
-    private localStorageService: LocalStorageService
-  ) {
-    this.game = {};
-  }
+    private localStorageService: LocalStorageService) { }
+
 
   ionViewWillEnter() {
     this.menuController.enable(true);
@@ -62,29 +59,5 @@ export class ListPage implements OnInit {
     this.firebaseService.playersData.subscribe(playersList => {
       this.players = playersList;
     });
-  }
-
-  /**
-   * Assign Roles
-   */
-  assignRoles() {
-    // To Do : Change playersCount to Dynamic players
-    const navigationExtras: NavigationExtras = {
-      state: {
-        players : this.players
-      }
-    };
-    this.router.navigate(['roles'], navigationExtras);
-  }
-
-  /**
-   * Reset Roles
-   */
-  async resetRoles() {
-    const players = this.players;
-    for ( let i = 0 ; i < players.length ; i++ ) {
-      players[i].role = AppConstants.ROLES.NOT_ASSIGNED;
-    }
-    await this.firebaseService.updatePlayersWithRoles(this.game.name, players);
   }
 }

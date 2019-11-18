@@ -95,10 +95,12 @@ export class FirebaseService {
     });
 
     this.configData.subscribe(configList => {
+      console.log("** configList", configList);
       this.configList = configList;
     });
 
     this.rolesData.subscribe(rolesList => {
+      console.log("** rolesList", rolesList);
       this.rolesList = rolesList;
     });
   }
@@ -144,16 +146,29 @@ export class FirebaseService {
    * Method : addNewPlayer
    * @param userDetails
    */
-  addNewPlayer(userDetails) {
-    return this.gameCollection.doc(userDetails.gameName).collection('players').add({
+  async addNewPlayer(userDetails) {
+    const playerId = this.firebaseServiceHelper.generateRandomUserId(userDetails.userName);
+    const addPlayerResponse = await this.gameCollection.doc(userDetails.gameName).collection('players').add({
+      playerId : playerId,
       name : userDetails.userName,
       role : AppConstants.ROLES.NOT_ASSIGNED
     });
+    if ( addPlayerResponse ) {
+      return { playerId };
+    }
+    return null;
   }
 
+  /**
+   * Update Player with Roles
+   * @param gameName
+   * @param players
+   */
   updatePlayersWithRoles(gameName, players) {
     for ( const player of players ) {
+      console.log(player.id);
       this.gameCollection.doc(gameName).collection('players').doc(player.id).set({
+        playerId: player.playerId,
         role : player.role,
         name : player.name
       });

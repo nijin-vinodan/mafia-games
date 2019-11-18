@@ -82,17 +82,22 @@ export class LoginPage implements OnInit {
    * Method : joinGame
    * Desc   : Join a existing game with user name and game id
    */
-  joinGame() {
-    console.log('Joining Game', this.joinGameForm.valid, this.joinGameForm.get('userName').value, this.joinGameForm.get('gameName').value);
-
-    // console.log(this.firebaseService.addGame());
+  async joinGame() {
+    const newPlayerObj = {
+      userName : this.joinGameForm.get('userName').value.toLowerCase(),
+      gameName: this.joinGameForm.get('gameName').value.toLowerCase()
+    };
 
     if (this.joinGameForm.valid) {
-      this.firebaseService.addNewPlayer({
-        userName : this.joinGameForm.get('userName').value,
-        gameName: this.joinGameForm.get('gameName').value
-      });
-      this.router.navigate(['home']);
+      const newPlayerResponse: any = await this.firebaseService.addNewPlayer(newPlayerObj);
+      console.log( newPlayerResponse );
+      if ( newPlayerResponse ) {
+        await this.localStorageService.addPlayer({
+          ...newPlayerObj,
+          id : newPlayerResponse.playerId,
+        });
+        this.router.navigate(['home']);
+      }
     } else {
       console.log('Invalid Fields');
     }
@@ -105,7 +110,7 @@ export class LoginPage implements OnInit {
   async createGame() {
     if (this.createGameForm.valid) {
       const newGameObject: NewGameModel = {
-        name : this.createGameForm.get('gameName').value,
+        name : this.createGameForm.get('gameName').value.toLowerCase(),
         password: this.createGameForm.get('gamePassword').value
       };
 

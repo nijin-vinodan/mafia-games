@@ -22,6 +22,16 @@ export class LocalStorageService {
   }
 
   /**
+   * Add New Player to LS
+   * @param playerObj
+   */
+  async addPlayer(playerObj) {
+    return await this.storage.set(AppConstants.LOCAL_STORAGE.LOGGED_IN_USER, playerObj).then(val => {
+      return val;
+    });
+  }
+
+  /**
    * Get Game Details From Local Storage
    */
   async getGameDetails() {

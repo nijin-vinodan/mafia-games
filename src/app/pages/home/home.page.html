@@ -4,16 +4,24 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Home
+      {{ user.gameName }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="card">
-      <div class="content ">
-          <h1>JOKER</h1>
-          <h2><sup>OF</sup><span class="dark">HEARTS</span></h2>
+    <div  *ngIf = "page === 1">
+      <h1 class = "user-name">{{ user.userName }}</h1>
+      <div class = "role">
+        <div class="card">
+          <div class="content ">
+              <h1>{{ user.role }}</h1>
+          </div>
+        </div>
+
+        <div class="sc__wrapper">
+          <div class = "js-sc-container" id="js--sc--container"></div>
+        </div>
       </div>
     </div>
 </ion-content>

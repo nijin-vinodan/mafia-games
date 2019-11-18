@@ -32,6 +32,7 @@
     "firebase": "^7.1.0",
     "ngx-logger": "^4.0.7",
     "rxjs": "~6.5.1",
+    "scratchcard-js": "^1.4.7",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

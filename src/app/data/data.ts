@@ -1,6 +1,36 @@
 export class Data {
     public static ROLE_CONFIGURATIONS = [
         {
+          name : 'players_1',
+          players : [
+            { role : 'civilian', count : 1 }
+          ]
+        },
+        {
+          name : 'players_2',
+          players : [
+            { role : 'civilian', count : 1 },
+            { role : 'mafia', count : 1 }
+          ]
+        },
+        {
+          name : 'players_3',
+          players : [
+            { role : 'civilian', count : 1 },
+            { role : 'mafia', count : 1 },
+            { role : 'detective', count : 1 }
+          ]
+        },
+        {
+          name : 'players_4',
+          players : [
+            { role : 'mafia', count : 1 },
+            { role : 'detective', count : 1 },
+            { role : 'silencer', count : 1 },
+            { role : 'civilian', count : 1 }
+          ]
+        },
+        {
           name : 'players_5',
           players : [
             { role : 'mafia', count : 1 },

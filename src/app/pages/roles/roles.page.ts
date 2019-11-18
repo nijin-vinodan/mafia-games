@@ -84,7 +84,7 @@ export class RolesPage implements OnInit {
           this.roles = this.firebaseService.getRolesList();
           this.getRolesConfiguration();
         }
-        this.countAssignedRoles();
+        
       } else {
         // Navigate back to list as state [playersCount] is not available
         this.router.navigate(['list']);
@@ -107,16 +107,18 @@ export class RolesPage implements OnInit {
    * Hide the Loader
    */
   async hideLoader () {
-    await this.loader.dismiss();
+    if (this.loader) {
+      await this.loader.dismiss();
+    }
   }
 
   /**
    * Get list of roles configurations available for the given playersCount from Firebase
    */
   async getRolesConfiguration() {
-    this.showLoader('Loading Roles');
+    // this.showLoader('Loading Roles');
     const configList = await this.firebaseService.getConfigList();
-    this.hideLoader();
+    // this.hideLoader();
     if ( configList ) {
       for (const configItem of configList) {
         if ( configItem.id === 'players_' + this.players.length ) {
@@ -147,7 +149,7 @@ export class RolesPage implements OnInit {
 
       // Add Roles Config to LS
       await this.localStorageService.addGameRoleConfigurations(this.roles);
-
+      this.countAssignedRoles();
       // To Do : Sort By Good/Bad Roles
       console.log(this.roles);
     }
@@ -213,7 +215,7 @@ export class RolesPage implements OnInit {
     const { data } = await modal.onWillDismiss();
     if (data === 'confirm') {
       this.startGame(players);
-    } 
+    }
   }
 
   /**
@@ -223,6 +225,7 @@ export class RolesPage implements OnInit {
    */
   async startGame(players) {
     const game = await this.localStorageService.getGameDetails();
+    console.log("** Players", players);
     await this.firebaseService.updatePlayersWithRoles(game.name, players);
     this.router.navigate(['list']);
   }
